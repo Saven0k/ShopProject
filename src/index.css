@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+button {
+  border: none;
+}
+
+input:active,
+:hover,
+:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+button:hover {
+  filter: opacity(80%);
+}
+
+a {
+  text-decoration: none;
+}
+
+.color-text {
+  font-weight: 700;
+
+  text-align: center;
+
+
+  color: #F16D7F;
+}
+
+select {
+  outline: none;
+  border: none;
+}
+
+.filter-sort {
+  padding-top: 39px;
+  align-items: center;
+  height: 132px;
+  position: relative;
+  display: flex;
+  gap: 35px;
+
+  .filter {
+    box-sizing: border-box;
+    padding-top: 13px;
+    width: 360px;
+    position: relative;
+    z-index: 10;
+    margin-left: 396px;
+
+    .filter[open] {
+      background-color: #fff;
+      box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+    }
+
+    .filter[open] .filter__heading {
+      color: #222;
+    }
+
+    .filter__content {
+      background-color: #fff;
+      padding: 17px;
+    }
+
+    .filter__heading {
+      color: #F16D7F;
+    }
+
+    .filter__summary {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding-left: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 16.8px;
+      text-align: left;
+
+    }
+
+
+    .filter__items {
+      margin-top: 16px;
+
+      .filter__items[open] .filter__head {
+        color: #222;
+      }
+
+      .filter__head {
+        font-style: normal;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        color: #6F6E6E;
+        padding: 8px 11px 11px 11px;
+        border-bottom: 1px solid #EBEBEB;
+        border-left: 5px solid #222;
+
+      }
+
+      .filter__link-box {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        padding: 24px 16px 24px 16px;
+
+        .filter__link {
+          font-style: normal;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 17px;
+          color: #6F6E6E;
+
+          &:hover {
+            color: #222;
+          }
+        }
+
+
+      }
+    }
+  }
+
+  .sort {
+    display: flex;
+    flex-direction: row;
+    padding-top: 12px;
+    gap: 18px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+    color: #6F6E6E;
+
+
+
+    .sort__details {
+      position: relative;
+      font-size: 14px;
+      color: #6F6E6E;
+
+      .sort__heading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+      }
+
+      .sort__box {
+        display: flex;
+        gap: 6px;
+        flex-direction: column;
+        background: #fff;
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+        padding: 7px 30px 11px 9px;
+        position: absolute;
+        left: -9px;
+        top: 20px;
+
+        .sort__check {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+        }
+      }
+    }
+
+  }
+}
+
+.centr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 64px;
+  margin-bottom: 96px;
+}
+
+.products {
+  justify-content: center;
+  margin-bottom: 48px;
+  align-items: center;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  .product {
+    margin-bottom: 30px;
+    width: 360px;
+    background: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .product__name {
+      color: #000;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 15.6px;
+      text-align: left;
+    }
+
+    .product__disc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 16.8px;
+      text-align: left;
+      color: #5D5D5D;
+    }
+
+    .product__price {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19.2px;
+      text-align: left;
+      color: #F16D7F;
+    }
+  }
+}
+
+.in_cart {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.in_cart .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #000000b6;
+  /* filter: blur(5px); */
+  position: absolute;
+  z-index: 3;
+  color: #f16d7f;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+.box {
+  display: none;
+}

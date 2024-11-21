@@ -1,0 +1,64 @@
+.section-offer {
+    margin-top: 64px;
+    margin-bottom: 97px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .color-text {
+        font-family: Lato;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28.8px;
+        text-align: center;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+    }
+
+    .offer {
+        max-width: 1142px;
+        min-width: 736px;
+        min-height: 303px;
+
+        display: grid;
+        grid-template-columns: repeat(3, minmax(232px, 360px));
+
+        gap: 30px;
+
+        .card {
+            position: relative;
+            min-width: 232px;
+            min-height: 167px;
+
+            .card_text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                color: #FFF;
+                text-align: center;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: normal;
+                transform: translate(-50%, -50%);
+                font-family: Lato;
+                line-height: 19.2px;
+                text-align: center;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+
+            }
+
+            .card__image {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .card-big {
+            grid-column: span 3;
+            min-height: 116px;
+        }
+
+    }
+}

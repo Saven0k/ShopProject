@@ -1,0 +1,20 @@
+.header {
+    background-color: #222;
+    height: 75px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .left-head {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .right-head {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+    }
+}

@@ -1,0 +1,32 @@
+.top-head {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 148px;
+    background-color: #F8F3F4;
+
+    .top-head__left {
+        font-size: 24px;
+        line-height: 28.8px;
+        font-weight: 400;
+        color: #F16D7F;
+        font-style: normal;
+
+    }
+
+    .top-head__right {
+        font-weight: 400;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 16.8px;
+        color: #222;
+
+        .mainColor {
+            color: #F16D7F;
+            font-weight: 700;
+        }
+
+    }
+}

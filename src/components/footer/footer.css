@@ -1,0 +1,20 @@
+.footer {
+    background-color: #222;
+    height: 79px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .left-footer {
+        color: #FBFBFB;
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.2px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+    }
+}

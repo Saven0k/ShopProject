@@ -1,0 +1,126 @@
+.subscribe {
+    background: rgba(244, 244, 244, 0.7);
+    background-image: url('./images/photo.jpg');
+    height: 448px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+
+    .subscribe-left {
+        width: 359.45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        img {
+            width: 96px;
+            height: 96px;
+
+        }
+
+        .text-sub {
+            font-family: Lato;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: center;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+
+
+            .a {
+                font-style: italic;
+            }
+        }
+    }
+
+    .subscribe-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 557px;
+        height: 137px;
+        flex-direction: column;
+        gap: 27px;
+
+        .sub {
+            font-family: Lato;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 40.13px;
+            text-align: center;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+
+        }
+
+        .sub-disc {
+            font-family: Lato;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 30.1px;
+            text-align: center;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+
+        }
+
+        img {
+            width: 356px;
+            height: 49px;
+        }
+    }
+
+    .input-sub {
+        position: relative;
+        display: flex;
+        width: 356px;
+        height: 49px;
+
+        .sub-input {
+            width: 100%;
+            height: 49px;
+            border-radius: 50px 0 0 50px;
+            padding-left: 22px;
+            border: none;
+            background: #E1E1E1;
+            font-family: Lato;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 16.8px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+
+        }
+
+        .b {
+            height: 49px;
+            background: #F16D7F;
+            ;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            padding: 8px;
+            position: absolute;
+            left: 270px;
+
+            .b-text {
+                width: 85px;
+                height: 36px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 16.8px;
+                text-align: center;
+            }
+        }
+
+    }
+}
