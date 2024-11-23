@@ -5,6 +5,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Registration from "./pages/Registration";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import ProductPage from "./pages/Product";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="*" element={<IndexPage />} />
+          <Route path="/product" element={<ProductPage />} />
         </Routes>
       </BrowserRouter>
 

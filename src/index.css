@@ -260,3 +260,25 @@ select {
 .box {
   display: none;
 }
+
+
+.linkA {
+  position: relative;
+}
+.buyer__ico {
+  position: absolute;
+}
+
+.product_count {
+  position: absolute;
+  background-color: #F16D7F;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -9px;
+  left: 20px;
+  border-radius: 50%;
+  width: 20px;
+}

@@ -1,0 +1,97 @@
+.fashion-case {
+    margin-bottom: 128px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .fashion {
+        min-width: 375px;
+        padding-top: 64px;
+        position: relative;
+        z-index: 888;
+        margin-top: -64px;
+        align-items: center;
+        width: 1141px;
+        background-color: #FFFFFF;
+        border: 1px solid #EAEAEA;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        .color-text {
+            text-align: center;
+            color: #F16D7F;
+            font-size: 14px;
+            line-height: 16.8px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .dicription {
+            text-align: center;
+            color: #5E5E5E;
+            margin-top: 30px;
+            min-width: 326px;
+            text-wrap: wrap;
+            padding: 50px;
+        }
+
+        .big-text {
+            text-align: center;
+            font-size: 18px;
+            line-height: 21.6px;
+            font-weight: 400;
+            color: #4D4D4D;
+            margin-top: 20px;
+        }
+
+        .price {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #F16D7F;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 28.8px;
+        }
+
+        .line-box {
+            width: 100%;
+
+            padding: 30px;
+
+            .line {
+                margin-bottom: 60px;
+                width: 624px;
+                min-width: 175px;
+                margin-top: 45px;
+                border: 1px solid #EAEAEA;
+                height: 1px;
+            }
+        }
+
+        .filter-img {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+
+            .filters {
+                min-width: 304px;
+            }
+        }
+
+        .button-to-buy {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+            margin-bottom: 90px;
+        }
+    }
+}

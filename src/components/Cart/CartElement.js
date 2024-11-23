@@ -2,7 +2,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import esc from './images/esc.svg'
 import './cart.css'
 import { deleteCartProduct } from '../../actions/productAction';
+
 const CartElement = () => {
+
     const products = useSelector(state => state.products);
     const dispatch = useDispatch();
 
@@ -11,11 +13,12 @@ const CartElement = () => {
     }
 
     let summ = 0;
-        
     const result = products.forEach((pr) => (
-        summ += pr.price * pr.quantity        
+        summ += pr.price * pr.quantity
     ));
-    console.log(summ);
+
+
+
     const productList = (product) => {
         return (
             <div className="product" key={product.id}>
@@ -46,6 +49,32 @@ const CartElement = () => {
             <h3> Корзина Пуста</h3>
         )
     }
+
+    const writeToJson = () => {
+        const data = {
+            email: document.querySelector('input[name="email"]').value,
+            street: document.querySelector('input[name="street"]').value,
+            nApartment: document.querySelector('input[name="numberApartment"]').value,
+        };
+        console.log(data)
+        const json = JSON.stringify(data);
+
+        fetch('https://api.telegram.org/bot6424055806:AAF7Rsp8lgCe1_Dm8uDzaGQGeYv-gfMjl2M/sendMessage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: json,
+        }).then(response => response.json())
+            .then(data => {
+                console.log('Данные успешно отправлены в Telegram', data);
+            })
+            .catch(error => {
+                console.error('Ошибка при отправке данных в Telegram', error);
+            });
+    }
+
+
     return (
         <div className="buy-part">
             <div className="left-side">
@@ -70,12 +99,10 @@ const CartElement = () => {
                         <p className="title">
                             SHIPPING ADRESS
                         </p>
-                        <input type="text" name="street" id="street" className="input" placeholder="Bangladesh" />
-                        <input type="text" name="state" id="state" className="input" placeholder="State" />
-                        <input type="text" name="postcode" id="postcode" className="input" placeholder="PostCode / Zip" />
-                        <button className="button-form">
-                            <p className="text">GET A QUOTE</p>
-                        </button>
+                        <input type="email" name="email" id="email" className="input" placeholder="Email" />
+                        <input type="text" name="street" id="street" className="input" placeholder="Улица и номер дома" />
+                        <input type="text" name="numberApartment" id="postcode" className="input" placeholder="номер квартиры" />
+
                     </form>
                 </div>
                 <div className="sum-buy">
@@ -87,9 +114,9 @@ const CartElement = () => {
                         <div className="line-draw"></div>
                     </div>
                     <div className="buy">
-                        <button className="button__to__buy">
+                        <button className="button__to__buy" onClick={writeToJson}>
                             <p className="text">
-                                PROCEED TO CHECKOUT
+                                Заказать
                             </p>
                         </button>
                     </div>

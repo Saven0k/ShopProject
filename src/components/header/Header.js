@@ -5,8 +5,9 @@ import list from './images/list.svg'
 import human from './images/Human.svg'
 import buyer from './images/buyer.svg'
 import { Link } from 'react-router-dom'
+import Count from '../productCounter/Counter'
 
-
+    
 const Header = () => {
     return (
         <header className='header'>
@@ -23,8 +24,9 @@ const Header = () => {
                 <Link to={"/registration"}>
                     <img src={human} className="human__ico" alt="" />
                 </Link>
-                <Link to={"/cart"}>
+                <Link to={"/cart"} className='linkA'>
                     <img src={buyer} className="buyer__ico" alt="" />
+                    <Count />
                 </Link>
             </div>
         </header>

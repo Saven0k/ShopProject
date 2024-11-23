@@ -134,10 +134,6 @@ const productReducer = (state = initialState, action) => {
 		case DELETE_PRODUCT_CART:
 			const res = state.map((pr) => {
 				if (pr.id === action.payload.id && pr.quantity > 0) {
-					// pr.quantity = pr.quantity - 1;
-					// if (pr.quantity === 0) {
-					// 	pr.inCart = false;
-					// }
 					return {
 						...pr,
 						quantity: pr.quantity - 1,
