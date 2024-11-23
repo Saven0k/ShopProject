@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import esc from './images/esc.svg'
 import './cart.css'
 import { deleteCartProduct } from '../../actions/productAction';
+import axios from 'axios';
 
 const CartElement = () => {
 
@@ -51,27 +52,25 @@ const CartElement = () => {
     }
 
     const writeToJson = () => {
-        const data = {
-            email: document.querySelector('input[name="email"]').value,
-            street: document.querySelector('input[name="street"]').value,
-            nApartment: document.querySelector('input[name="numberApartment"]').value,
-        };
-        console.log(data)
-        const json = JSON.stringify(data);
 
-        fetch('https://api.telegram.org/bot6424055806:AAF7Rsp8lgCe1_Dm8uDzaGQGeYv-gfMjl2M/sendMessage', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: json,
-        }).then(response => response.json())
-            .then(data => {
-                console.log('Данные успешно отправлены в Telegram', data);
+
+        document.getElementById('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let message = `<b>Заявка с сайта</b>\n`;
+            message += `<b>Email: </b> ${this.email.value}\n`
+            message += `<b>Улица и дом: </b> ${this.street.value}\n`
+            message += `<b>Номер квартиры: </b> ${this.numberApartment.value}\n`
+
+            axios.post(URL_API, {
+                chat_id: CHAT_ID,
+                parse_mode: 'html',
+                text: message,
+            }).then((res) => {
+
             })
-            .catch(error => {
-                console.error('Ошибка при отправке данных в Telegram', error);
-            });
+
+        })
     }
 
 
@@ -95,32 +94,32 @@ const CartElement = () => {
             </div>
             <div className="right-side">
                 <div className="form-buy">
-                    <form className="form-adress">
+                    <form className="form-adress" id='form'>
                         <p className="title">
                             SHIPPING ADRESS
                         </p>
                         <input type="email" name="email" id="email" className="input" placeholder="Email" />
                         <input type="text" name="street" id="street" className="input" placeholder="Улица и номер дома" />
                         <input type="text" name="numberApartment" id="postcode" className="input" placeholder="номер квартиры" />
-
+                        <div className="sum-buy">
+                            <div className="sum">
+                                <p className="sub-total">SUB TOTAL ${summ}</p>
+                                <p className="grade-total">GRAND TOTAL <span className="color-text">${summ}</span></p>
+                            </div>
+                            <div className="line">
+                                <div className="line-draw"></div>
+                            </div>
+                            <div className="buy">
+                                <button type='submit' className="button__to__buy" onClick={writeToJson}>
+                                    <p className="text">
+                                        Заказать
+                                    </p>
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
-                <div className="sum-buy">
-                    <div className="sum">
-                        <p className="sub-total">SUB TOTAL ${summ}</p>
-                        <p className="grade-total">GRAND TOTAL <span className="color-text">${summ}</span></p>
-                    </div>
-                    <div className="line">
-                        <div className="line-draw"></div>
-                    </div>
-                    <div className="buy">
-                        <button className="button__to__buy" onClick={writeToJson}>
-                            <p className="text">
-                                Заказать
-                            </p>
-                        </button>
-                    </div>
-                </div>
+
             </div>
         </div>
     )
