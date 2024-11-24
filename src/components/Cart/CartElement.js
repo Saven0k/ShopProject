@@ -2,12 +2,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import esc from './images/esc.svg'
 import './cart.css'
 import { deleteCartProduct } from '../../actions/productAction';
-import axios from 'axios';
+import writeToTg from '../../services/workWithTg';
+import { useState } from 'react';
 
 const CartElement = () => {
-
     const products = useSelector(state => state.products);
     const dispatch = useDispatch();
+    const [email, setEmail] = useState("");
+    const [street, setStreet] = useState("");
+    const [nApr, setNaPr] = useState("");
+
+    const handleClickClearCart = () => {
+        products.map((pr) => {
+            handleClickDelete(pr.id)
+        })
+    }
+
 
     const handleClickDelete = (id) => {
         dispatch(deleteCartProduct(id))
@@ -39,7 +49,7 @@ const CartElement = () => {
                         </div>
                     </div>
                 </div>
-                <div class="esc">
+                <div className="esc">
                     <img onClick={() => handleClickDelete(product.id)} src={esc} alt="" />
                 </div>
             </div>
@@ -51,26 +61,33 @@ const CartElement = () => {
         )
     }
 
+    const valueProductCart = () => {
+        let productList = []
+        products.map((pr) => {
+            if (pr.quantity > 0 && pr.inCart) {
+                let productMessage = {}
+                productMessage.id = pr.id
+                productMessage.name = pr.name
+                productMessage.color = pr.color
+                productMessage.size = pr.size
+                productMessage.price = pr.price
+                productMessage.quantity = pr.quantity
+                productList.push(productMessage)
+            }
+        })        
+        return productList;
+    }
+
     const writeToJson = () => {
-
-
         document.getElementById('form').addEventListener('submit', function (e) {
             e.preventDefault();
-
-            let message = `<b>Заявка с сайта</b>\n`;
-            message += `<b>Email: </b> ${this.email.value}\n`
-            message += `<b>Улица и дом: </b> ${this.street.value}\n`
-            message += `<b>Номер квартиры: </b> ${this.numberApartment.value}\n`
-
-            axios.post(URL_API, {
-                chat_id: CHAT_ID,
-                parse_mode: 'html',
-                text: message,
-            }).then((res) => {
-
-            })
-
+            let arrayData = { email: email, street: street, nApa: nApr, summ: summ, product: valueProductCart()}
+            writeToTg(arrayData)
         })
+        setEmail("");
+        setStreet("");
+        setNaPr("");
+        handleClickClearCart()
     }
 
 
@@ -80,7 +97,6 @@ const CartElement = () => {
                 <div className="produucts">
                     {products.map(product =>
                         product.inCart ? productList(product) : emptyList
-
                     )}
                 </div>
                 <div className="buttons">
@@ -98,9 +114,9 @@ const CartElement = () => {
                         <p className="title">
                             SHIPPING ADRESS
                         </p>
-                        <input type="email" name="email" id="email" className="input" placeholder="Email" />
-                        <input type="text" name="street" id="street" className="input" placeholder="Улица и номер дома" />
-                        <input type="text" name="numberApartment" id="postcode" className="input" placeholder="номер квартиры" />
+                        <input type="email" onChange={(e) => { setEmail(e.target.value) }} value={email} name="email" id="email" className="input" placeholder="Email" />
+                        <input type="text" onChange={(e) => { setStreet(e.target.value) }} value={street} name="street" id="street" className="input" placeholder="Улица и номер дома" />
+                        <input type="text" onChange={(e) => { setNaPr(e.target.value) }} value={nApr} name="numberApartment" id="postcode" className="input" placeholder="номер квартиры" />
                         <div className="sum-buy">
                             <div className="sum">
                                 <p className="sub-total">SUB TOTAL ${summ}</p>
@@ -110,7 +126,9 @@ const CartElement = () => {
                                 <div className="line-draw"></div>
                             </div>
                             <div className="buy">
-                                <button type='submit' className="button__to__buy" onClick={writeToJson}>
+                                <button type='submit' className="button__to__buy" onClick={
+                                    writeToJson
+                                }>
                                     <p className="text">
                                         Заказать
                                     </p>

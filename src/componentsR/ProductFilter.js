@@ -17,33 +17,33 @@ const ProductFilter = () => {
                     <details open className="filter__items">
                         <summary className="filter__head">CATEGORY</summary>
                         <div className="filter__link-box">
-                            <a href="" class="filter__link">Socks</a>
-                            <a href="" class="filter__link">Shoes</a>
-                            <a href="" class="filter__link">Jeans</a>
-                            <a href="" class="filter__link">Baskets</a>
-                            <a href="" class="filter__link">Boots</a>
+                            <p className="filter__link">Socks</p>
+                            <p className="filter__link">Shoes</p>
+                            <p className="filter__link">Jeans</p>
+                            <p className="filter__link">Baskets</p>
+                            <p className="filter__link">Boots</p>
                         </div>
                     </details>
 
                     <details className="filter__items">
-                        <summary class="filter__head">BRAND</summary>
-                        <div class="filter__link-box">
-                            <a href="" className="filter__link">Socks</a>
-                            <a href="" className="filter__link">Shoes</a>
-                            <a href="" className="filter__link">Jeans</a>
-                            <a href="" className="filter__link">Baskets</a>
-                            <a href="" className="filter__link">Boots</a>
+                        <summary className="filter__head">BRAND</summary>
+                        <div className="filter__link-box">
+                            <p className="filter__link">Socks</p>
+                            <p className="filter__link">Shoes</p>
+                            <p className="filter__link">Jeans</p>
+                            <p className="filter__link">Baskets</p>
+                            <p className="filter__link">Boots</p>
                         </div>
                     </details>
 
                     <details className="filter__items">
                         <summary className="filter__head">DESIGNER</summary>
-                        <div class="filter__link-box">
-                            <a href="" className="filter__link">Socks</a>
-                            <a href="" className="filter__link">Shoes</a>
-                            <a href="" className="filter__link">Jeans</a>
-                            <a href="" className="filter__link">Baskets</a>
-                            <a href="" className="filter__link">Boots</a>
+                        <div className="filter__link-box">
+                            <p className="filter__link">Socks</p>
+                            <p className="filter__link">Shoes</p>
+                            <p  className="filter__link">Jeans</p>
+                            <p  className="filter__link">Baskets</p>
+                            <p className="filter__link">Boots</p>
                         </div>
                     </details>
                 </div>

@@ -35,7 +35,7 @@ const ProductList = () => {
                 ))}
 
             </div>
-            <div class="lists center">
+            <div className="lists center">
                 <img src={image} alt=""/>
             </div>
         </div>

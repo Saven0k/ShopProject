@@ -136,8 +136,8 @@ const productReducer = (state = initialState, action) => {
 				if (pr.id === action.payload.id && pr.quantity > 0) {
 					return {
 						...pr,
-						quantity: pr.quantity - 1,
-						inCart: pr.quantity - 1 !== 0,
+						quantity: 0,
+						inCart: false,
 					};
 				}
 				return pr;
