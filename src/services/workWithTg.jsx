@@ -1,8 +1,6 @@
 import axios from 'axios';
 const writeToTg = (arrayData) => {
-    const TOKEN = "6424055806:AAF7Rsp8lgCe1_Dm8uDzaGQGeYv-gfMjl2M";
-    const CHAT_ID = "-1002489868891";
-    const URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
 
     let prList = arrayData.product
 
