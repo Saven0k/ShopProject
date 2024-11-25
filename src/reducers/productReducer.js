@@ -1,6 +1,8 @@
 import {
+	ADD_PRODUCT_CART,
 	ADD_TO_CART_PRODUCT,
 	DELETE_PRODUCT_CART,
+	ONCE_DETELE_PRODUCT,
 } from "../actions/productAction";
 import p7 from "./images/prodcut7.svg";
 import p1 from "./images/product1.svg";
@@ -143,6 +145,29 @@ const productReducer = (state = initialState, action) => {
 				return pr;
 			});
 			return res;
+		case ONCE_DETELE_PRODUCT:
+			const res2 = state.map((pr) => {
+				if (pr.id === action.payload.id && pr.quantity > 0) {
+					return {
+						...pr,
+						quantity: pr.quantity - 1,
+						inCart: pr.quantity - 1 !== 0,
+					};
+				}
+				return pr;
+			});
+			return res2;
+		case ADD_PRODUCT_CART:
+			const res3 = state.map((pr) => {
+				if (pr.id === action.payload.id && pr.quantity > 0) {
+					return {
+						...pr,
+						quantity: pr.quantity + 1,
+					};
+				}
+				return pr;
+			});
+			return res3;
 		default:
 			return state;
 	}

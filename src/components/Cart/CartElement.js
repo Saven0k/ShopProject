@@ -1,9 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 import esc from './images/esc.svg'
 import './cart.css'
-import { deleteCartProduct } from '../../actions/productAction';
+import { addToCartProduct, deleteCartProduct, onceAddProduct, onceDeleteProduct } from '../../actions/productAction';
 import writeToTg from '../../services/workWithTg';
 import { useState } from 'react';
+import add from './images/add.png'
+import minus from './images/minus.png'
+import { Link } from 'react-router-dom'
 
 const CartElement = () => {
     const products = useSelector(state => state.products);
@@ -28,6 +31,13 @@ const CartElement = () => {
         summ += pr.price * pr.quantity
     ));
 
+    const handleClickAdd = (id) => {
+        dispatch(onceAddProduct(id))
+    }
+    const handleClickClear = (id) => {
+        dispatch(onceDeleteProduct(id))
+    }
+
 
 
     const productList = (product) => {
@@ -46,6 +56,10 @@ const CartElement = () => {
                         <p className="size">Size: <p className="size">{product.size}</p></p>
                         <div className="quantity">
                             <p className="quantity">Quantity: {product.quantity}</p>
+                        </div>
+                        <div>
+                            <img className='imgL'  onClick={() => handleClickAdd(product.id)} src={add}/>
+                            <img className='imgL' onClick={() => handleClickClear(product.id)} src={minus}/>
                         </div>
                     </div>
                 </div>
@@ -100,12 +114,16 @@ const CartElement = () => {
                     )}
                 </div>
                 <div className="buttons">
-                    <div className="left-button button">
-                        CLEAR SHOPPING CART
-                    </div>
-                    <div className="right-button button">
-                        CONTINUE SHOPPING
-                    </div>
+                    <Link to={'/catalog'}>
+                        <button className="right-button button">
+                            CONTINUE SHOPPING
+                        </button>
+                    </Link>
+                    <button onClick={handleClickClearCart} className="left-button button">
+                            CLEAR SHOPPING CART
+                    </button>
+                    
+                  
                 </div>
             </div>
             <div className="right-side">

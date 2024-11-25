@@ -5,6 +5,7 @@ import withFilter from '../hoc/withFilter';
 import { FilterContext } from '../context/FIlterContext';
 
 import image from './lists.svg'
+import { Link } from 'react-router-dom';
 
 const ProductList = () => {
     const products = useSelector(state => state.products);
@@ -21,7 +22,7 @@ const ProductList = () => {
         <div className='centr'>
             <div className="products center ">
                 {filterProducts.map(product => (
-                    <div className={product.quantity > 0 ? "product in_cart": "product"} key={product.id} onClick={() => handleClickProduct(product.id)}
+                    <div className={product.quantity > 0 ? "product in_cart" : "product"} key={product.id} onClick={() => handleClickProduct(product.id)}
                         style={{ filter: product.inCart ? 'brightness(60%)' : 'brightness(100%)' }}>
                         <img src={product.img} alt="" />
                         <p className="product__name">{product.name}</p>
@@ -36,7 +37,7 @@ const ProductList = () => {
 
             </div>
             <div className="lists center">
-                <img src={image} alt=""/>
+                <img src={image} alt="" />
             </div>
         </div>
     )

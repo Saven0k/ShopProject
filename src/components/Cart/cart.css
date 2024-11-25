@@ -78,6 +78,14 @@
                                 border: 1px solid #EAEAEA;
                             }
                         }
+                        .imgL {
+                            transition: 0.5s;
+                            width: 25px;
+                            padding-top: 25px;
+                        }
+                        .imgL:hover {
+                            filter: brightness(50%);
+                        }
                     }
 
                 }
@@ -109,7 +117,11 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                transition: 0.5s;
                 color: #000;
+            }
+            .button:hover {
+                filter: brightness(50%);
             }
         }
     }
